@@ -84,3 +84,52 @@ Inicie o servidor:
 ```
 go run main.go
 ```
+
+# Executando o Aplicativo com Docker
+
+### 1. Construir a Imagem Docker
+
+Para construir a imagem Docker do seu projeto, execute o seguinte comando na raiz do diretório do projeto (onde o Dockerfile está localizado):
+
+```
+docker build -t go-auth .
+```
+
+### 2. Executar o Contêiner Docker
+
+Após a imagem ser construída com sucesso, você pode iniciar um contêiner a partir dela. Use o seguinte comando para rodar o contêiner e mapear a porta 8000 do contêiner para a porta 8000 da sua máquina local:
+
+```
+docker run -d -p 8000:8000 --name go-auth go-auth
+```
+
+### 3. Parar o Contêiner
+
+Para parar o contêiner em execução, use o seguinte comando:
+
+```
+docker stop go-auth
+```
+
+### 4. Reiniciar o Contêiner
+
+Para reiniciar o contêiner, utilize:
+
+```
+docker start go-auth
+```
+
+### 5. Remover o Contêiner
+
+Se você precisar remover o contêiner (por exemplo, para recriá-lo), use:
+
+```
+docker rm go-auth
+```
+
+### 6. Acessar as Rotas da API
+
+Depois de executar o contêiner, você pode acessar as rotas da API usando um cliente HTTP, como Postman ou Insomnia, ou até mesmo ferramentas como curl. A API estará disponível em:
+
+Login: http://localhost:8000/login
+Validar Token: http://localhost:8000/validate
